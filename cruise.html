@@ -26,7 +26,30 @@
             my_cruise.breakfast = document.getElementById('checkbox2').checked;
             my_cruise.pool = document.getElementById('checkbox3').checked;
 
-            document.getElementById('cruiseResult').innerHTML = JSON.stringify(my_cruise);
+            displayCruise();
+        }
+        function updateCruise() {
+            var days = document.getElementById('daysInput').value;
+            var price = document.getElementById('priceInput').value;
+            my_cruise.days = days;
+            my_cruise.price = price;
+
+            displayCruise();
+        }
+        function displayCruise() {
+            const cruiseProps = {
+                "Shares Cabin": my_cruise.shared,
+                "Breakfast": my_cruise.breakfast,
+                "Pool Pass": my_cruise.pool,
+                "Number of Days": my_cruise.days,
+                "Price": my_cruise.price
+            };
+            let resultHTML = "<strong>Selected Cruise:</strong><br>";
+
+            for (const prop in cruiseProps) {
+                resultHTML += '${prop}: ${cruiseProps[prop] ? "True" : "False"}<br>';
+            }
+            document.getElementById('cruiseResult').innerHTML = resultHTML;
         }
     </script>
 
