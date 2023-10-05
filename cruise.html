@@ -49,7 +49,7 @@
             for (const prop in cruiseProps) {
                 resultHTML += '${prop}: ${cruiseProps[prop] ? "True" : "False"}<br>';
             }
-            document.getElementById('cruiseResult').innerHTML = resultHTML;
+            document.getElementById('cruiseResult').innerHTML = resultHTML
         }
     </script>
 
@@ -65,6 +65,15 @@
     <input type="button" onclick="resolveForm()" value="Get values from form">
 </form>
 
+<form>
+    <label for="daysInput">Enter the number of days:</label>
+    <input type="text" id="daysInput" value="7">
+    <br>
+    <label for="priceInput">Enter price:</label>
+    <input type="text" id="priceInput" value="1000">
+    <br>
+    <input type="button" value="Update the cruise" onclick="updateCruise()">
+</form>
 
 <p id="result">This text will be replaced </p>
 
