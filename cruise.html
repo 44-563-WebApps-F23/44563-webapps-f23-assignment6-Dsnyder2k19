@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Cruise Ship</title>
+    <h1>Dylan Snyder goes on a cruise</h1>
+ </head>
+<body>
+    <form>
+        <input type="checkbox" id="checkbox1" value="True">
+        <label>Shares Cabin</label>
+        <br>
+        <input type="checkbox" id="checkbox2" value="True">
+        <label>Breakfast</label>
+        <br>
+        <input type="checkbox" id="checkbox3" value="True">
+        <label>Pool Pass</label>
+        <br>
+        <input type="button" value="Select a cruise" onclick="selectCruise()">
+        <p id="cruiseResult"></p>
+    </form>
+    <script>
+        var my_cruise = {};
+        function selectCruise() {
+            my_cruise = {};
+            my_cruise.shared = document.getElementById('checkbox1').checked;
+            my_cruise.breakfast = document.getElementById('checkbox2').checked;
+            my_cruise.pool = document.getElementById('checkbox3').checked;
+
+            document.getElementById('cruiseResult').innerHTML = JSON.stringify(my_cruise);
+        }
+    </script>
+
+<h2>Getting input</h2>
+
+<form>
+    <label for="form1_age">What is your age </label>
+    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+
+    <label for="form1_nick">What is your nickname </label>
+    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+
+    <input type="button" onclick="resolveForm()" value="Get values from form">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+</script>
+
+</body>
+</html> 
