@@ -4,6 +4,13 @@
 <head>
     <title>Author</title>
     <h1>Author Entry</h1>
+    <style>
+        .image-container img {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 
@@ -72,6 +79,34 @@ function resolveForm (){
         } 
         
         resultElement.innerHTML = "Good: " + good + "<br>Oops: " + oops;
+    }
+</script>
+
+<div class="image-container" onclick="selectImage()">
+    <img id="City" src="Norfolk1.png" alt="City of Norfolk Nebraska">
+</div>
+<script>
+    // variable to keep track of current image
+    var useImage =1;
+    function selectImage() {
+        var imageElement = document.getElementById('City');
+
+        switch (useImage) {
+            case 1:
+                imageElement.src = 'Ralston1.png';
+                useImage = 2;
+                break;
+            case 2:
+                imageElement.src = 'York1.png';
+                useImage = 3;
+                break;
+            case 3:
+                imageElement.src = 'Norfolk1.png';
+                useImage = 1;
+                break;
+            default:
+                break;
+        }
     }
 </script>
 
